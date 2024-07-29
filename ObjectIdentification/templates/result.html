@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        img {
+            max-width: 50%;
+            height: auto;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Is this what you expected?</h1>
+    <h1>Predictions</h1>
+
+    {% for r, p in res %}
+        {{ r }} {{ p }}%<br/>
+    {% endfor %}
+
+    
+    <img src="{{ image_url }}" alt="Result Image" id="result-image">
+
+    
+    <button id="toggle-image-button">Toggle Image</button>
+
+    <script>
+        const image = document.getElementById('result-image');
+        const button = document.getElementById('toggle-image-button');
+
+        button.addEventListener('click', () => {
+            if (image.style.display === 'none') {
+                image.style.display = 'block';
+            } else {
+                image.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
